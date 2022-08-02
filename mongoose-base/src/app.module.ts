@@ -3,7 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './user/user.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 require('dotenv').config()
@@ -18,7 +18,7 @@ require('dotenv').config()
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true
     }),
-    UsersModule
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],

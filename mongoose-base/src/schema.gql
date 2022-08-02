@@ -2,21 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Mutation {
-  createUser(input: UserInput!): User!
-}
-
-type Query {
-  users: [User!]!
-}
-
-type User {
+input CreateUserInput {
   email: String!
   name: String!
   password: String!
 }
 
-input UserInput {
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+}
+
+type Query {
+  listUser: [User!]!
+}
+
+type User {
   email: String!
   name: String!
   password: String!
