@@ -2,6 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+type AuthType {
+  token: String!
+  user: User!
+}
+
 input CreateUserInput {
   email: String!
   name: String!
@@ -10,6 +20,7 @@ input CreateUserInput {
 
 type Mutation {
   createUser(data: CreateUserInput!): User!
+  login(data: AuthInput!): AuthType!
 }
 
 type Query {

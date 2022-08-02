@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { AuthModule } from './auth/auth.module';
 require('dotenv').config()
 
 @Module({
@@ -18,7 +19,8 @@ require('dotenv').config()
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true
     }),
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
