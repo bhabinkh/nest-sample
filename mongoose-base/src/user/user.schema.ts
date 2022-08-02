@@ -1,4 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType, ID, HideField } from '@nestjs/graphql';
 import * as mongoose from 'mongoose'
 
 export const UserSchema = new mongoose.Schema({
@@ -9,12 +9,15 @@ export const UserSchema = new mongoose.Schema({
 
 @ObjectType()
 export class User extends mongoose.Document {
+    @Field(() => ID)
+    id: mongoose.Types.ObjectId;
+
     @Field()
     name: string;
 
     @Field()
     email: string;
 
-    @Field()
+    @HideField()
     password: string;
 }

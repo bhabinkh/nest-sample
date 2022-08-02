@@ -9,7 +9,7 @@ input CreateUserInput {
 }
 
 type Mutation {
-  createUser(createUserInput: CreateUserInput!): User!
+  createUser(data: CreateUserInput!): User!
 }
 
 type Query {
@@ -18,6 +18,6 @@ type Query {
 
 type User {
   email: String!
+  id: ID!
   name: String!
-  password: String!
 }
