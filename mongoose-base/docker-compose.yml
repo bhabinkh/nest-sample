@@ -1,0 +1,14 @@
+#docker-compose file
+version: '3'
+
+services:
+  mongoose_base:
+    container_name: mongoose_base
+    image: mongoose_base:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
