@@ -12,7 +12,8 @@ require('dotenv').config()
 @Module({
   imports: [
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@bhabinnodejslearn.dquug.mongodb.net/${process.env.MONGO_ATLAS_DB}?retryWrites=true&w=majority`,
+      `mongodb://localhost:27017/NEST_MONGO_APP`,
+      // `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@bhabinnodejslearn.dquug.mongodb.net/${process.env.MONGO_ATLAS_DB}?retryWrites=true&w=majority`,
     ),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

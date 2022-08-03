@@ -28,19 +28,19 @@ export class UserService {
     // get user
     async getUserById(id: string): Promise<User> {
         const user = await this.userModel.findById(id)
-        if (user) {
-            return user
+        if (!user) {
+            throw new BadRequestException('User not found')
         }
-        return null
+        return user
     }
 
     // get user
     async getUser(email: string): Promise<User> {
         const user = await this.userModel.findOne({ email })
-        if (user) {
-            return user
+        if (!user) {
+            throw new BadRequestException('User not found')
         }
-        return null
+        return user
     }
 
     // list users

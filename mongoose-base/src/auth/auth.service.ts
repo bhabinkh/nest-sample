@@ -26,8 +26,9 @@ export class AuthService {
     }
 
     private async createJwtToken(user: User): Promise<string> {
-        const payload = { userId: user.id, pass: user.password.slice(0, 8) }
-        return this.jwtService.signAsync(payload)
+        const payload = { userId: user.id }
+        // const pass = user.password.slice(8,16)
+        const secretKey = process.env.JWT_SECRET
+        return this.jwtService.signAsync(payload, { secret: secretKey })
     }
-
 }
